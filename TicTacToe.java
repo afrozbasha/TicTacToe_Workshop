@@ -1,8 +1,10 @@
 package com.TicTac;
+
 import java.util.Scanner;
 
 
 class TicTac{
+    Scanner sc = new Scanner(System.in);
 
     ////assign a Char 1D array as a static
     static char[] arr = new char[10];
@@ -35,7 +37,28 @@ class TicTac{
         arr[x-1] = 'O';
     }
 
-}
+    void paly(){
+        System.out.print("Choose a letter X or O : ");
+        char c = sc.next().charAt(0);
+        if ((c != 'X') ||(c != 'O'))
+            System.out.println("Enter Only Cgar 'O' or 'X' ");
+        switch (c) {
+            case 'O':
+                System.out.println("Give the Index (1-9) of put O : ");
+                putO(sc.nextInt());
+                disp();
+                break;
+            case 'X':
+                System.out.println("Give the Index (1-9) of put X : ");
+                putX(sc.nextInt());
+                disp();
+                break;
+            }
+
+        }
+    }
+
+
 
 public class Main {
 
@@ -44,19 +67,17 @@ public class Main {
         TicTac t = new TicTac();
         t.init();
         t.disp();
+        //t.paly();
 
-        System.out.print("Choose a letter X or O : ");
-        char c = sc.next().charAt(0);
-        switch (c) {
-            case 'O':
-                System.out.println("Give the Index of put O : ");
-                t.putO(sc.nextInt());
-                t.disp();
-            case 'X':
-                System.out.println("Give the Index of put X : ");
-                t.putX(sc.nextInt());
-                t.disp();
+
+        while  ( (t.arr[0] == ' ') || (t.arr[1] == ' ') || (t.arr[2] == ' ') || (t.arr[3] == ' ') || (t.arr[4] == ' ') || (t.arr[5] == ' ') || (t.arr[6] == ' ') || (t.arr[7] == ' ') || (t.arr[8] == ' ')) {
+            t.paly();
+        }
+
+
+
         }
 
     }
-}
+
+
