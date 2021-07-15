@@ -24,6 +24,17 @@ class TicTac{
         System.out.println("---------");
         System.out.println(arr[6] + " | " + arr[7] + " | " + arr[8] );
     }
+
+    //User can call this method by putting 'X' to specific index
+    static void putX(int x){
+        arr[x-1] = 'X';
+    }
+
+    //User can call this method by putting 'O' to specific index
+    static void putO(int x){
+        arr[x-1] = 'O';
+    }
+
 }
 
 public class Main {
@@ -34,7 +45,8 @@ public class Main {
         t.init();
         t.disp();
 
-
+        System.out.print("Choose a letter X or O : ");
+        char c = sc.next().charAt(0);
 
     }
 }
