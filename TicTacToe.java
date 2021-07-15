@@ -29,19 +29,26 @@ class TicTac{
 
     //User can call this method by putting 'X' to specific index
     static void putX(int x){
-        arr[x-1] = 'X';
+        if(arr[x-1] != ' ')
+            System.out.println("No Space to enter the 'X' this cell");
+        else
+            arr[x-1] = 'X';
+
     }
 
     //User can call this method by putting 'O' to specific index
     static void putO(int x){
-        arr[x-1] = 'O';
+        if (arr[x-1] != ' ')
+            System.out.println("No Space to enter the 'O' this cell");
+        else
+            arr[x-1] = 'O';
     }
 
     void paly(){
         System.out.print("Choose a letter X or O : ");
         char c = sc.next().charAt(0);
         if ((c != 'X') ||(c != 'O'))
-            System.out.println("Enter Only Cgar 'O' or 'X' ");
+            System.out.println("Enter Only Char 'O' or 'X' ");
         switch (c) {
             case 'O':
                 System.out.println("Give the Index (1-9) of put O : ");
@@ -67,7 +74,6 @@ public class Main {
         TicTac t = new TicTac();
         t.init();
         t.disp();
-        //t.paly();
 
 
         while  ( (t.arr[0] == ' ') || (t.arr[1] == ' ') || (t.arr[2] == ' ') || (t.arr[3] == ' ') || (t.arr[4] == ' ') || (t.arr[5] == ' ') || (t.arr[6] == ' ') || (t.arr[7] == ' ') || (t.arr[8] == ' ')) {
