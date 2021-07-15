@@ -1,6 +1,6 @@
 package com.TicTac;
-
 import java.util.Scanner;
+import java.util.Random;
 
 
 class TicTac{
@@ -45,10 +45,19 @@ class TicTac{
     }
 
     void paly(){
-        System.out.print("Choose a letter X or O : ");
-        char c = sc.next().charAt(0);
+        char c;
+        Random rd = new Random();
+        int r = rd.nextInt(1);
+        if (r==1){
+            System.out.println("Play the letter 'X' player ");
+            c = 'X';
+        }else {
+            System.out.println("Play the letter 'O' player ");
+            c = 'O';
+        }
         if ((c != 'X') ||(c != 'O'))
-            System.out.println("Enter Only Char 'O' or 'X' ");
+            //System.out.println("Enter Only Char 'O' or 'X' ");
+
         switch (c) {
             case 'O':
                 System.out.println("Give the Index (1-9) of put O : ");
@@ -71,15 +80,16 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         TicTac t = new TicTac();
         t.init();
         t.disp();
 
 
+
         while  ( (t.arr[0] == ' ') || (t.arr[1] == ' ') || (t.arr[2] == ' ') || (t.arr[3] == ' ') || (t.arr[4] == ' ') || (t.arr[5] == ' ') || (t.arr[6] == ' ') || (t.arr[7] == ' ') || (t.arr[8] == ' ')) {
             t.paly();
         }
-
 
 
         }
