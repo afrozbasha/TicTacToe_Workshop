@@ -47,6 +47,16 @@ public class Main {
 
         System.out.print("Choose a letter X or O : ");
         char c = sc.next().charAt(0);
+        switch (c) {
+            case 'O':
+                System.out.println("Give the Index of put O : ");
+                t.putO(sc.nextInt());
+                t.disp();
+            case 'X':
+                System.out.println("Give the Index of put X : ");
+                t.putX(sc.nextInt());
+                t.disp();
+        }
 
     }
 }
