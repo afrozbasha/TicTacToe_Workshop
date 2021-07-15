@@ -1,0 +1,40 @@
+package com.TicTac;
+import java.util.Scanner;
+
+
+class TicTac{
+
+    ////assign a Char 1D array as a static
+    static char[] arr = new char[10];
+
+    //(can Calling from Main method) assign a empty space char by using 1D array
+    void init() {
+        for (int i = 0; i < 10; i++) {
+            arr[i] = ' ';
+        }
+    }
+
+    //display Tic Tac Toe 1D array Box
+    //(can Calling from Main method)
+    static void disp() {
+        System.out.println("display Tic Tac Toe Box using 1D array");
+        System.out.println(arr[0] + " | " + arr[1] + " | " + arr[2] );
+        System.out.println("---------");
+        System.out.println(arr[3] + " | " + arr[4] + " | " + arr[5] );
+        System.out.println("---------");
+        System.out.println(arr[6] + " | " + arr[7] + " | " + arr[8] );
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        TicTac t = new TicTac();
+        t.init();
+        t.disp();
+
+
+
+    }
+}
