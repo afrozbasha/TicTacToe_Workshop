@@ -1,6 +1,6 @@
 package com.TicTac;
+
 import java.util.Scanner;
-import java.util.Random;
 
 
 class TicTac{
@@ -8,6 +8,7 @@ class TicTac{
 
     ////assign a Char 1D array as a static
     static char[] arr = new char[10];
+    static boolean flag = true;
 
     //(can Calling from Main method) assign a empty space char by using 1D array
     void init() {
@@ -25,6 +26,7 @@ class TicTac{
         System.out.println(arr[3] + " | " + arr[4] + " | " + arr[5] );
         System.out.println("---------");
         System.out.println(arr[6] + " | " + arr[7] + " | " + arr[8] );
+        return;
     }
 
     //User can call this method by putting 'X' to specific index
@@ -45,34 +47,33 @@ class TicTac{
     }
 
     void paly(){
-        char c;
-        Random rd = new Random();
-        int r = rd.nextInt(1);
-        if (r==1){
-            System.out.println("Play the letter 'X' player ");
-            c = 'X';
-        }else {
-            System.out.println("Play the letter 'O' player ");
-            c = 'O';
-        }
+        System.out.print("Choose a letter X or O : ");
+        char c = sc.next().charAt(0);
         if ((c != 'X') ||(c != 'O'))
-            //System.out.println("Enter Only Char 'O' or 'X' ");
-
+            System.out.println("Enter Only Char 'O' or 'X' ");
         switch (c) {
             case 'O':
                 System.out.println("Give the Index (1-9) of put O : ");
                 putO(sc.nextInt());
                 disp();
+                if( ((arr[0] == 'O') && (arr[1] == 'O') && (arr[2] == 'O')) || ((arr[3] == 'O') && (arr[4] == 'O') && (arr[5] == 'O')) || ((arr[6] == 'O') && (arr[7] == 'O') && (arr[8] == 'O')) || ((arr[0] == 'O') && (arr[3] == 'O') && (arr[6] == 'O')) || ((arr[1] == 'O') && (arr[4] == 'O') && (arr[7] == 'O')) || ((arr[2] == 'O') && (arr[5] == 'O') && (arr[8] == 'O')) || ((arr[0] == 'O') && (arr[4] == 'O') && (arr[8] == 'O')) || ((arr[2] == 'O') && (arr[4] == 'O') && (arr[6] == 'O')) ){
+                    System.out.println("*** 'O' Player is Winner ***");
+                    flag = false;
+                }
                 break;
             case 'X':
                 System.out.println("Give the Index (1-9) of put X : ");
                 putX(sc.nextInt());
                 disp();
+                if( ((arr[0] == 'X') && (arr[1] == 'X') && (arr[2] == 'X')) || ((arr[3] == 'X') && (arr[4] == 'X') && (arr[5] == 'X')) || ((arr[6] == 'X') && (arr[7] == 'X') && (arr[8] == 'X')) || ((arr[0] == 'X') && (arr[3] == 'X') && (arr[6] == 'X')) || ((arr[1] == 'X') && (arr[4] == 'X') && (arr[7] == 'X')) || ((arr[2] == 'X') && (arr[5] == 'X') && (arr[8] == 'X')) || ((arr[0] == 'X') && (arr[4] == 'X') && (arr[8] == 'X')) || ((arr[2] == 'X') && (arr[4] == 'X') && (arr[6] == 'X')) ){
+                    System.out.println("** 'X' Player is Winner ***");
+                    flag = false;
+                }
                 break;
-            }
-
         }
+
     }
+}
 
 
 
@@ -80,20 +81,19 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         TicTac t = new TicTac();
         t.init();
         t.disp();
 
 
+        while  ( ((t.arr[0] == ' ') || (t.arr[1] == ' ') || (t.arr[2] == ' ') || (t.arr[3] == ' ') || (t.arr[4] == ' ') || (t.arr[5] == ' ') || (t.arr[6] == ' ') || (t.arr[7] == ' ') || (t.arr[8] == ' ')) && t.flag) {
 
-        while  ( (t.arr[0] == ' ') || (t.arr[1] == ' ') || (t.arr[2] == ' ') || (t.arr[3] == ' ') || (t.arr[4] == ' ') || (t.arr[5] == ' ') || (t.arr[6] == ' ') || (t.arr[7] == ' ') || (t.arr[8] == ' ')) {
             t.paly();
+
         }
 
 
-        }
 
     }
 
-
+}
