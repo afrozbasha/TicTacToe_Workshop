@@ -48,12 +48,12 @@ class TicTac{
             arr[x-1] = 'O';
         return;
     }
-
+    //Computer can play the game giving the pos or index
     int pingComputer(){
-        //int com = rd.nextInt(9);
-        return rd.nextInt(9);
+        return rd.nextInt(9)+1;
     }
 
+    //Play the main game Choose a letter 'X' ---> Give the Index (1-9) ---> Computer tun ---> Opponent win block ---> Player winner ---> Game is Over
     void paly(){
         System.out.print("Choose a letter 'X' or 'O' -> : ");
         char c = sc.next().charAt(0);
@@ -61,14 +61,13 @@ class TicTac{
             System.out.println("!!! Enter Only Char 'O' or 'X' !!!");
         }else ;
 
-
         switch (c) {
             case 'O':
                 int o;
                 System.out.println("Give the Index (1-9) of put -> 'O' : ");
                 int a = rd.nextInt(2);
                 if (a == 1){
-                    System.out.println("$$$ Now Computer tun");
+                    System.out.println("$$$ Now Computer tun $$$");
                     if (((arr[0] == 'X') && (arr[1] == 'X') && (arr[2] == ' ')) || ((arr[3] == 'X') && (arr[4] == 'X') && (arr[5] == ' ')) || ((arr[6] == 'X') && (arr[7] == 'X') && (arr[8] == ' ')) || ((arr[0] == 'X') && (arr[3] == 'X') && (arr[6] == ' ')) || ((arr[1] == 'X') && (arr[4] == 'X') && (arr[7] == ' ')) || ((arr[2] == 'X') && (arr[5] == 'X') && (arr[8] == ' ')) || ((arr[0] == 'X') && (arr[4] == 'X') && (arr[8] == ' ')) || ((arr[2] == 'X') && (arr[4] == 'X') && (arr[6] == ' '))){
                         System.out.println("/-/-/- Opponent can win play to block it -/-/-/");
                         if (arr[2] == ' ')
@@ -83,9 +82,10 @@ class TicTac{
                             putO(8);
                         disp();
                         break;
-                    }else
+                    }else{
                         o = pingComputer();
                         putO(o);
+                    }
                 }else{
                     if (((arr[0] == 'X') && (arr[1] == 'X') && (arr[2] == ' ')) || ((arr[3] == 'X') && (arr[4] == 'X') && (arr[5] == ' ')) || ((arr[6] == 'X') && (arr[7] == 'X') && (arr[8] == ' ')) || ((arr[0] == 'X') && (arr[3] == 'X') && (arr[6] == ' ')) || ((arr[1] == 'X') && (arr[4] == 'X') && (arr[7] == ' ')) || ((arr[2] == 'X') && (arr[5] == 'X') && (arr[8] == ' ')) || ((arr[0] == 'X') && (arr[4] == 'X') && (arr[8] == ' ')) || ((arr[2] == 'X') && (arr[4] == 'X') && (arr[6] == ' '))){
                         System.out.println("/-/-/- Opponent can win play to block it -/-/-/");
@@ -131,10 +131,11 @@ class TicTac{
                             putX(8);
                         disp();
                         break;
-                    }else
+                    }else{
                         x = pingComputer();
                         putO(x);
-
+                        disp();
+                    }
                 }else{
                     if (((arr[0] == 'O') && (arr[1] == 'O') && (arr[2] == ' ')) || ((arr[3] == 'O') && (arr[4] == 'O') && (arr[5] == ' ')) || ((arr[6] == 'O') && (arr[7] == 'O') && (arr[8] == ' ')) || ((arr[0] == 'O') && (arr[3] == 'O') && (arr[6] == ' ')) || ((arr[1] == 'O') && (arr[4] == 'O') && (arr[7] == ' ')) || ((arr[2] == 'O') && (arr[5] == 'O') && (arr[8] == ' ')) || ((arr[0] == 'O') && (arr[4] == 'O') && (arr[8] == ' ')) || ((arr[2] == 'O') && (arr[4] == 'O') && (arr[6] == ' '))){
                         System.out.println("/-/-/- Opponent can win play to block it -/-/-/");
@@ -168,7 +169,6 @@ class TicTac{
 
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TicTac t = new TicTac();
@@ -183,9 +183,5 @@ public class Main {
         }
         if (t.flag)
             System.out.println("@@@ 'O' Player and 'X' Player Got the match was draw @@@ \n &&&&---Game is Over---&&&&");
-
-
-
     }
-
 }
